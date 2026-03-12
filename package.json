@@ -1,6 +1,6 @@
 
   {
-      "name": "OtterMon AI - Web UI/UX",
+      "name": "N8N Bazar Landing Page",
       "version": "0.1.0",
       "private": true,
       "dependencies": {
@@ -34,7 +34,6 @@
           "clsx": "*",
           "cmdk": "^1.1.1",
           "embla-carousel-react": "^8.6.0",
-          "framer-motion": "*",
           "input-otp": "^1.4.2",
           "lucide-react": "^0.487.0",
           "next-themes": "^0.4.6",
