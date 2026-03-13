@@ -1,4 +1,4 @@
-import { ArrowLeft, Pencil, Trash2 } from 'lucide-react'
+import { ArrowLeft, Pencil, Trash2, Plus, Mail, Phone } from 'lucide-react'
 import { SuperAdminSidebar } from '@/components/common/SuperAdminSidebar'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
@@ -24,6 +24,33 @@ const companyBasicsData = [
 const parentCorpData = [
   { label: 'Parent Corporation Legal Name', value: 'Global Corp Inc.' },
   { label: 'Ownership Type', value: 'Wholly Owned Subsidiary' },
+]
+
+const keyContactsData = [
+  {
+    id: '1',
+    name: 'Sarah Johnson',
+    title: 'Primary Contact',
+    email: 'sarah.johnson@nyhq.example.com',
+    phone: '+1 (555) 123-4567',
+    initials: 'SJ',
+  },
+  {
+    id: '2',
+    name: 'Michael Chen',
+    title: 'Billing Contact',
+    email: 'michael.chen@nyhq.example.com',
+    phone: '+1 (555) 234-5678',
+    initials: 'MC',
+  },
+  {
+    id: '3',
+    name: 'Emily Davis',
+    title: 'Technical Contact',
+    email: 'emily.davis@nyhq.example.com',
+    phone: '+1 (555) 345-6789',
+    initials: 'ED',
+  },
 ]
 
 function InfoRow({ label, value }: { label: string; value: string }) {
@@ -176,8 +203,86 @@ export function CompanyDirectoryViewDetails() {
               </TabsContent>
 
               <TabsContent value="key-contacts" className="mt-0">
-                <div className="py-8 text-center text-muted-foreground">
-                  Key Contacts content
+                <div
+                  className="flex flex-col gap-6"
+                  data-node-id="1-11997"
+                  data-name="Key Contacts Wrapper"
+                >
+                  <Card
+                    className="w-full max-w-2xl"
+                    data-node-id="1-11998"
+                    data-name="Key Contacts Card"
+                  >
+                    <CardHeader className="flex flex-row items-center justify-between pb-4">
+                      <CardTitle className="text-base font-semibold">
+                        Key Contacts
+                      </CardTitle>
+                      <Button size="sm">
+                        <Plus className="mr-2 h-4 w-4" />
+                        Add Contact
+                      </Button>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <div className="flex flex-col">
+                        {keyContactsData.map((contact, index) => (
+                          <div key={contact.id}>
+                            <div className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
+                              <Avatar className="h-10 w-10 shrink-0">
+                                <AvatarFallback className="text-sm">
+                                  {contact.initials}
+                                </AvatarFallback>
+                              </Avatar>
+                              <div className="flex flex-1 flex-col gap-1 min-w-0">
+                                <div className="flex items-center justify-between gap-2">
+                                  <span className="text-sm font-medium text-foreground">
+                                    {contact.name}
+                                  </span>
+                                  <div className="flex items-center gap-2 shrink-0">
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-8 w-8"
+                                    >
+                                      <Pencil className="h-4 w-4" />
+                                    </Button>
+                                    <Button
+                                      variant="ghost"
+                                      size="icon"
+                                      className="h-8 w-8 text-destructive hover:bg-destructive/10 hover:text-destructive"
+                                    >
+                                      <Trash2 className="h-4 w-4" />
+                                    </Button>
+                                  </div>
+                                </div>
+                                <span className="text-sm text-muted-foreground">
+                                  {contact.title}
+                                </span>
+                                <div className="flex flex-col gap-0.5 mt-1">
+                                  <a
+                                    href={`mailto:${contact.email}`}
+                                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                  >
+                                    <Mail className="h-4 w-4 shrink-0" />
+                                    {contact.email}
+                                  </a>
+                                  <a
+                                    href={`tel:${contact.phone}`}
+                                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                  >
+                                    <Phone className="h-4 w-4 shrink-0" />
+                                    {contact.phone}
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            {index < keyContactsData.length - 1 && (
+                              <Separator className="my-0" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               </TabsContent>
 
