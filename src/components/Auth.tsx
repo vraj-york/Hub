@@ -155,7 +155,7 @@ export function Auth({ onLogin }: AuthProps) {
           <div className="text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start space-x-3 mb-6">
               <Calendar className="h-12 w-12 text-primary" />
-              <h1 className="text-4xl font-bold">MeetingTracker</h1>
+              <h1 className="text-4xl font-bold">Meeting Tracker</h1>
             </div>
             <h2 className="text-2xl font-semibold mb-4">Comprehensive Meeting Tracking & Management</h2>
             <p className="text-lg text-muted-foreground mb-8">
@@ -218,7 +218,7 @@ export function Auth({ onLogin }: AuthProps) {
         <Card className="w-full max-w-md mx-auto bg-card/80 backdrop-blur-sm border-2">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">
-              {isLogin ? 'Welcome Back' : 'Join MeetingTracker'}
+              {isLogin ? 'Welcome Back' : 'Join Meeting Tracker'}
             </CardTitle>
             <p className="text-muted-foreground">
               {isLogin 
