@@ -116,14 +116,14 @@ export function CorporationsDirectoryPage() {
             onClick={() => navigate('/corporations/add')}
             aria-label="Add a new corporation"
             sx={{
-              background: 'rgba(48, 95, 161, 1)',
+              background: 'var(--color-success)',
               color: 'rgba(255, 255, 255, 1)',
               fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
               fontWeight: 600,
               fontSize: 14,
               textTransform: 'none',
               borderRadius: 2,
-              '&:hover': { background: 'rgba(48, 95, 161, 0.9)' },
+              '&:hover': { background: 'rgba(47, 143, 107, 0.9)' },
             }}
           >
             Add New Corporation
