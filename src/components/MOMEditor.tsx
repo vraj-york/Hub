@@ -81,7 +81,6 @@ interface MOMEditorProps {
 export function MOMEditor({ currentUser }: MOMEditorProps) {
   const [selectedMOM, setSelectedMOM] = useState<string>('1');
   const [isEditing, setIsEditing] = useState(false);
-  const [showAIAssistant, setShowAIAssistant] = useState(false);
   const [newActionItem, setNewActionItem] = useState({
     description: '',
     assigneeId: '',
@@ -312,20 +311,10 @@ export function MOMEditor({ currentUser }: MOMEditorProps) {
           <h2 className="text-2xl font-semibold">Minutes of Meeting</h2>
           <p className="text-muted-foreground">Create and manage meeting minutes with AI assistance</p>
         </div>
-        <div className="flex space-x-2">
-          <Button 
-            variant="outline" 
-            onClick={() => setShowAIAssistant(!showAIAssistant)}
-            className={showAIAssistant ? 'bg-primary/10 border-primary/20 text-primary' : ''}
-          >
-            <Bot className="h-4 w-4 mr-2" />
-            AI Assistant
-          </Button>
-          <Button variant="outline" onClick={() => setIsEditing(!isEditing)}>
-            <Edit className="h-4 w-4 mr-2" />
-            {isEditing ? 'View Mode' : 'Edit Mode'}
-          </Button>
-        </div>
+        <Button variant="outline" onClick={() => setIsEditing(!isEditing)}>
+          <Edit className="h-4 w-4 mr-2" />
+          {isEditing ? 'View Mode' : 'Edit Mode'}
+        </Button>
       </div>
 
       <Tabs defaultValue="editor" className="space-y-6">
