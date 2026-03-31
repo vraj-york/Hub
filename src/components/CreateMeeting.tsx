@@ -847,7 +847,7 @@ Background Context:
         {/* Meeting Overview Sidebar */}
         <div className="lg:col-span-1 space-y-6">
         {/* Welcome Section */}
-        <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
+        <Card className="overflow-hidden border-primary/25 bg-gradient-to-br from-primary/15 via-primary/10 to-muted/45 shadow-sm">
           <CardContent className="p-4">
             <div className="flex items-center space-x-3">
               <Avatar className="h-12 w-12">
