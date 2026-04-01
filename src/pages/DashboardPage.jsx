@@ -15,7 +15,7 @@ import {
   selectActiveThemePreference,
 } from '../store/slices/authSlice';
 import { setActiveSidebarItem } from '../store/slices/uiSlice';
-import dashboardHeroIcon from '../assets/images/client-link-50-1657eca0.jpg';
+import dashboardHeroIcon from '../assets/images/client-link-51-c13545cf.jpg';
 
 function themePreferenceToDisplay(preference) {
   if (preference === 'dark') return 'Dark Theme';
