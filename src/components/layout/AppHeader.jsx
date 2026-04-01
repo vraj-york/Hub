@@ -94,7 +94,10 @@ export function AppHeader() {
                 sx={{
                   fontWeight: 600,
                   fontSize: '0.875rem',
-                  color: 'var(--color-primary-dark)',
+                  color:
+                    seg.label === 'Corporation Directory' && seg.current
+                      ? 'var(--color-success)'
+                      : 'var(--color-primary-dark)',
                 }}
               >
                 {seg.label}
