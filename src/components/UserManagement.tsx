@@ -401,10 +401,12 @@ export function UserManagement({ currentUser }: UserManagementProps) {
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search users..."
+            placeholder="Search here..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10"
+            className="pl-10 w-full min-w-[min(100%,20rem)] sm:max-w-xl sm:w-[28rem]"
+            role="searchbox"
+            aria-label="Search corporation directory"
           />
         </div>
         <Select value={filterRole} onValueChange={setFilterRole}>
