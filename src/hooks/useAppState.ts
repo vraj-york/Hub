@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react';
 import { User, Integrations, UserPermissions, Meeting } from '../types';
 import { ROLE_PERMISSIONS } from '../constants/rolePermissions';
+import { pathToTab } from '../constants/tabRoutes';
+
+function initialTabFromUrl(): string {
+  if (typeof window === 'undefined') return 'create';
+  return pathToTab(window.location.pathname) ?? 'create';
+}
 
 export function useAppState() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState('create');
+  const [activeTab, setActiveTab] = useState(initialTabFromUrl);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [smartMode, setSmartMode] = useState(true);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -275,7 +281,8 @@ export function useAppState() {
   const handleLogin = (user: User) => {
     setCurrentUser(user);
     setIsAuthenticated(true);
-    setActiveTab('create');
+    const tabFromPath = pathToTab(window.location.pathname);
+    setActiveTab(tabFromPath ?? 'create');
     localStorage.setItem('meetingTracker_auth', JSON.stringify({ user }));
   };
 

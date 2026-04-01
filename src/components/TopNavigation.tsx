@@ -7,7 +7,8 @@ import {
   CheckSquare, 
   Settings,
   Eye,
-  LayoutDashboard
+  LayoutDashboard,
+  Building2
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
@@ -77,6 +78,12 @@ export function TopNavigation({
       icon: CheckSquare,
       available: true,
       badge: actionItemsCount > 0 ? actionItemsCount : undefined
+    },
+    {
+      id: 'users',
+      label: 'Corporations',
+      icon: Building2,
+      available: userPermissions.canManageUsers
     },
     {
       id: 'integrations',

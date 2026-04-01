@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MeetingDashboard } from './components/MeetingDashboard';
 import { CreateMeeting } from './components/CreateMeeting';
 import { MOMEditor } from './components/MOMEditor';
@@ -14,6 +14,7 @@ import { HeaderControls } from './components/HeaderControls';
 import { AIAssistantFAB } from './components/AIAssistantFAB';
 import { useAppState } from './hooks/useAppState';
 import { Toaster } from './components/ui/sonner';
+import { tabToPath, pathToTab } from './constants/tabRoutes';
 
 export default function App() {
   const {
@@ -48,7 +49,24 @@ export default function App() {
     return <Auth onLogin={handleLogin} />;
   }
 
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const tabFromPath = pathToTab(window.location.pathname);
+      if (tabFromPath) setActiveTab(tabFromPath);
+    };
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
+  }, [setActiveTab]);
+
   const permissions = getUserPermissions();
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    const path = tabToPath(tab);
+    if (window.location.pathname !== path) {
+      window.history.pushState(null, '', path);
+    }
+  };
 
   const renderMainContent = () => {
     // If showing ongoing meeting, render that view
@@ -94,7 +112,7 @@ export default function App() {
             meetings={meetings}
             onViewMeetingDetails={handleViewMeetingDetails}
             onJoinMeeting={handleJoinMeeting}
-            onCreateMeeting={() => setActiveTab('create')}
+            onCreateMeeting={() => handleTabChange('create')}
           />
         );
       case 'create':
@@ -103,7 +121,7 @@ export default function App() {
             currentUser={currentUser!} 
             integrations={integrations}
             userPermissions={permissions}
-            onMeetingCreated={() => setActiveTab('dashboard')}
+            onMeetingCreated={() => handleTabChange('dashboard')}
             onAddMeeting={addMeeting}
             onAddMeetings={addMeetings}
             followUpData={followUpMeetingData}
@@ -151,7 +169,7 @@ export default function App() {
             currentUser={currentUser!} 
             integrations={integrations}
             userPermissions={permissions}
-            onMeetingCreated={() => setActiveTab('dashboard')}
+            onMeetingCreated={() => handleTabChange('dashboard')}
             onAddMeeting={addMeeting}
             onAddMeetings={addMeetings}
             followUpData={followUpMeetingData}
@@ -241,7 +259,7 @@ export default function App() {
       {/* Top Navigation */}
       <TopNavigation
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={handleTabChange}
         currentUser={currentUser!}
         userPermissions={permissions}
         actionItemsCount={5}
@@ -269,7 +287,7 @@ export default function App() {
         meetings={meetings}
         onCreateMeeting={handleAICreateMeeting}
         onScheduleFollowUp={handleAIScheduleFollowUp}
-        onNavigateToCreate={() => setActiveTab('create')}
+        onNavigateToCreate={() => handleTabChange('create')}
       />
 
       {/* Toast Notifications */}
