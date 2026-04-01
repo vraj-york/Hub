@@ -8,7 +8,7 @@ import {
   LayoutDashboard,
   MapPin,
   UserRoundCog,
-  UserRound,
+  UserStar,
   Shield,
   GraduationCap,
   CreditCard,
@@ -45,7 +45,7 @@ const sidebarGroups = [
     items: [
       { label: 'User Directory', path: '/admin/users', icon: Users },
       { label: 'Company Admins', path: '/admin/company-admins', icon: UserRoundCog },
-      { label: 'Team Leads', path: '/admin/team-leads', icon: UserRound },
+      { label: 'Team Leads', path: '/admin/team-leads', icon: UserStar },
       { label: 'Roles & Permissions', path: '/admin/roles', icon: Shield },
       { label: 'Coaches', path: '/admin/coaches', icon: GraduationCap },
     ],
