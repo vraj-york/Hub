@@ -95,8 +95,10 @@ export function CorporationsDirectoryPage() {
             px: 3,
             py: 2.5,
             borderRadius: 2,
-            background: 'linear-gradient(125deg, rgba(232, 241, 251, 1) 0%, rgba(255, 255, 255, 0.92) 42%, rgba(214, 229, 246, 0.95) 100%)',
-            boxShadow: '0px 2px 8px rgba(48, 95, 161, 0.07)',
+            backgroundColor: '#e8f4fc',
+            backgroundImage:
+              'linear-gradient(118deg, #c8e6ff 0%, #dbeefe 28%, #eef6ff 55%, #d4e9fc 100%)',
+            boxShadow: '0px 2px 10px rgba(48, 95, 161, 0.1)',
           }}
         >
           <Box>
