@@ -27,6 +27,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar, selectIsSidebarOpen } from '../../store/slices/uiSlice';
 import { selectCurrentCorporationLogoUrl } from '../../store/slices/corporationsSlice';
 import bspBlueprintLogo from '../../assets/images/client-link-48-88409125.jpg';
+import dashboardNavIcon from '../../assets/images/client-link-49-8de7f6ef.webp';
 
 const sidebarGroups = [
   {
@@ -35,7 +36,7 @@ const sidebarGroups = [
       {
         label: 'Dashboard',
         path: '/dashboard',
-        iconSrc: '/images/image-14-f71e3aa5.png',
+        iconSrc: dashboardNavIcon,
       },
     ],
   },
