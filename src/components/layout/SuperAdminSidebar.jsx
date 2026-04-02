@@ -28,7 +28,6 @@ import { toggleSidebar, selectIsSidebarOpen } from '../../store/slices/uiSlice';
 import { selectCurrentCorporationLogoUrl } from '../../store/slices/corporationsSlice';
 import bspBlueprintLogo from '../../assets/images/client-link-48-88409125.jpg';
 import dashboardNavIcon from '../../assets/images/client-link-49-8de7f6ef.webp';
-import '../../assets/styles/superAdminSidebar.css';
 
 const sidebarGroups = [
   {
@@ -122,15 +121,15 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
       sx={{
         width: isDrawer ? 240 : isOpen ? 240 : 0,
         minWidth: isDrawer ? 240 : isOpen ? 240 : 0,
-        background: 'var(--super-admin-sidebar-bg)',
+        background: 'var(--color-white)',
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
         transition: isDrawer ? 'none' : 'width 200ms ease-out',
-        borderRight: isDrawer ? 'none' : '1px solid var(--super-admin-sidebar-divider)',
+        borderRight: isDrawer ? 'none' : '1px solid var(--color-grey-400)',
       }}
     >
-      <Box sx={{ p: 2, borderBottom: '1px solid var(--super-admin-sidebar-divider)' }}>
+      <Box sx={{ p: 2, borderBottom: '1px solid var(--color-grey-400)' }}>
         <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <img
@@ -144,7 +143,7 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                   fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
                   fontSize: '12px',
                   fontWeight: 400,
-                  color: 'var(--super-admin-sidebar-meta-text)',
+                  color: 'rgba(73, 130, 145, 1)',
                   mt: 0.5,
                 }}
               >
@@ -158,7 +157,7 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
               onClick={onClose}
               aria-label="Close navigation menu"
               sx={{
-                color: 'var(--super-admin-sidebar-icon-button)',
+                color: 'rgba(73, 130, 145, 1)',
                 width: 37.25,
                 height: 36,
                 p: 0,
@@ -172,7 +171,7 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
               onClick={() => dispatch(toggleSidebar())}
               aria-label="Collapse sidebar"
               sx={{
-                color: 'var(--super-admin-sidebar-icon-button)',
+                color: 'rgba(73, 130, 145, 1)',
                 width: 37.25,
                 height: 36,
                 p: 0,
@@ -192,7 +191,7 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                 px: 2,
                 py: 0.5,
                 display: 'block',
-                color: 'var(--super-admin-sidebar-section-label)',
+                color: 'rgba(73, 130, 145, 1)',
                 fontWeight: 600,
                 fontSize: '0.75rem',
               }}
@@ -233,26 +232,23 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                     borderRadius: 1,
                     cursor: 'pointer',
                     background: isDashboardActive || isCompaniesDirectoryActive
-                      ? 'var(--super-admin-sidebar-active-bg)'
+                      ? 'rgba(48, 95, 161, 1)'
                       : isActive
-                        ? 'var(--super-admin-sidebar-inactive-active-bg)'
+                        ? 'var(--color-grey-100)'
                         : 'transparent',
-                    borderLeft:
-                      isActive && !isDashboardActive && !isCompaniesDirectoryActive
-                        ? '4px solid var(--super-admin-sidebar-accent-bar)'
-                        : '4px solid transparent',
+                    borderLeft: isActive && !isDashboardActive && !isCompaniesDirectoryActive ? '4px solid var(--color-accent-blue)' : '4px solid transparent',
                     color: isDashboardActive || isCompaniesDirectoryActive
-                      ? 'var(--super-admin-sidebar-item-text-on-strong)'
+                      ? 'rgba(255, 255, 255, 1)'
                       : isActive
-                        ? 'var(--super-admin-sidebar-item-text-on-strong)'
-                        : 'var(--super-admin-sidebar-item-text)',
+                        ? 'var(--color-accent-blue)'
+                        : 'var(--color-primary-dark)',
                     '&:hover': {
                       background: isDashboardActive || isCompaniesDirectoryActive
-                        ? 'var(--super-admin-sidebar-hover-strong)'
+                        ? 'rgba(48, 95, 161, 0.9)'
                         : isActive
-                          ? 'var(--super-admin-sidebar-inactive-active-bg)'
-                          : 'var(--super-admin-sidebar-hover)',
-                      color: 'var(--super-admin-sidebar-item-text-on-strong)',
+                          ? 'var(--color-grey-100)'
+                          : 'rgba(231, 237, 247, 0.5)',
+                      color: isDashboardActive || isCompaniesDirectoryActive ? 'rgba(255, 255, 255, 1)' : 'var(--color-accent-blue)',
                     },
                   }}
                 >
@@ -271,7 +267,7 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                         filter:
                           isDashboardActive || isCompaniesDirectoryActive
                             ? 'brightness(0) invert(1)'
-                            : 'brightness(0) invert(1) opacity(0.88)',
+                            : undefined,
                       }}
                     />
                   ) : (
@@ -282,10 +278,10 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                         style={{
                           flexShrink: 0,
                           color: Icon === Settings
-                            ? 'rgba(255, 255, 255, 0.72)'
+                            ? 'rgba(52, 76, 86, 1)'
                             : isDashboardActive || isCompaniesDirectoryActive
                               ? 'rgba(255, 255, 255, 1)'
-                              : 'rgba(255, 255, 255, 0.92)',
+                              : 'rgba(47, 65, 74, 1)',
                         }}
                       />
                     )
@@ -297,8 +293,8 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                     <Box
                       component="span"
                       sx={{
-                        background: 'var(--super-admin-sidebar-badge-bg)',
-                        color: 'var(--super-admin-sidebar-badge-text)',
+                        background: 'rgba(241, 246, 253, 1)',
+                        color: 'rgba(58, 111, 216, 1)',
                         borderRadius: 9999,
                         fontWeight: 600,
                         fontSize: '0.75rem',
