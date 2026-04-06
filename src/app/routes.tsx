@@ -1,5 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router';
+import { ROUTES } from './const';
 import Layout from './components/Layout';
+import LoginPage from './components/pages/LoginPage';
 import ProjectsPage from './components/pages/ProjectsPage';
 import ClientsPage from './components/pages/ClientsPage';
 import TemplatesPage from './components/pages/TemplatesPage';
@@ -14,6 +16,7 @@ import MeetingDetailPage from './components/pages/MeetingDetailPage';
 import AIAgentsHub from './components/pages/AIAgentsHub';
 
 export const router = createBrowserRouter([
+  { path: ROUTES.login, Component: LoginPage },
   {
     path: '/',
     Component: Layout,
