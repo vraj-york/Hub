@@ -4,9 +4,9 @@
   --corporations-status-select-background: #305fa1;
   --corporations-status-select-foreground: rgba(255, 255, 255, 0.95);
   --corporations-time-range-select-min-width: 200px;
-  /* Add corporation CTA (theme error red) */
-  --corporations-add-cta-bg: #c44755;
-  --corporations-add-cta-bg-hover: #a12f3f;
+  /* Add corporation / primary toolbar CTA (red) */
+  --corporations-add-cta-bg: #dc2626;
+  --corporations-add-cta-bg-hover: #b91c1c;
   /* Corporation directory search field (yellow surface) */
   --corporations-search-input-bg: #fef08a;
   --corporations-search-input-border: #ca8a04;
