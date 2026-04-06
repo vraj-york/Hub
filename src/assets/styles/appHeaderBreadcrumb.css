@@ -1,5 +1,12 @@
-/* App header breadcrumb — Corporation Directory current segment */
+/* App header bar + breadcrumb accents */
 :root {
+  --app-header-background: linear-gradient(
+    105deg,
+    #ffffff 0%,
+    #f1f6fd 38%,
+    #e7edf7 72%,
+    #f8f7fb 100%
+  );
   --breadcrumb-corporation-directory-gradient: linear-gradient(
     135deg,
     rgba(225, 236, 252, 1) 0%,
