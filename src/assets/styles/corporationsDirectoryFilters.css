@@ -1,4 +1,5 @@
-/* Corporation directory toolbar — time range filter trigger width */
+/* Corporation directory toolbar — filter combobox trigger widths */
 :root {
+  --corporations-status-select-min-width: 200px;
   --corporations-time-range-select-min-width: 200px;
 }

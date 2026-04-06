@@ -164,6 +164,7 @@ export function CorporationsDirectoryPage() {
               aria-label="Filter by corporation status"
               selectedValueTextColor="rgba(47, 65, 74, 1)"
               inputBackground="rgba(255, 255, 255, 1)"
+              triggerSx={{ minWidth: 'var(--corporations-status-select-min-width)' }}
             />
             <CustomSelect
               options={TIME_RANGE_OPTIONS}
