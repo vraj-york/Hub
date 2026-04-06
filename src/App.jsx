@@ -15,6 +15,7 @@ import { EmailVerificationCodeTemplate } from './components/email-templates/Emai
 import { AddCompanyPage } from './pages/AddCompanyPage';
 import { CorporationsAddRoute } from './pages/CorporationsAddRoute';
 import { GlobalToast } from './components/common/GlobalToast';
+import { ProjectsPage } from './pages/ProjectsPage';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/corporations" replace />} />
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/corporations" element={<CorporationsDirectoryPage />} />
         <Route path="/corporations/add" element={<CorporationsAddRoute />} />
         <Route path="/corporations/:corporationId/profile" element={<CorporationProfileConfigurationPage />} />

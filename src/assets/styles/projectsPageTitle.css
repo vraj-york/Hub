@@ -1,0 +1,4 @@
+/* Projects page — main toolbar title (replaces default gray #111827) */
+:root {
+  --projects-page-title-color: #dc2626;
+}
