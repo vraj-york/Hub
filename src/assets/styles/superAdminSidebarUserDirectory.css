@@ -1,0 +1,8 @@
+/* Super admin sidebar — User Directory nav item (red emphasis, theme error) */
+:root {
+  --sidebar-user-directory-fg: #c44755;
+  --sidebar-user-directory-hover-bg: rgba(196, 71, 85, 0.12);
+  --sidebar-user-directory-active-bg: rgba(196, 71, 85, 0.2);
+  --sidebar-user-directory-active-bg-hover: rgba(196, 71, 85, 0.28);
+  --sidebar-user-directory-active-fg: #a12f3f;
+}
