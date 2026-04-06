@@ -161,6 +161,21 @@ export function CorporationsDirectoryPage() {
               value={filters.searchText}
               onChange={handleSearchChange}
               aria-label="Search corporation directory"
+              startAdornmentIconColor="var(--corporations-search-icon-color)"
+              inputSx={{
+                backgroundColor: 'var(--corporations-search-input-bg)',
+                '& fieldset': { borderColor: 'var(--corporations-search-input-border)' },
+                '&:hover fieldset': { borderColor: 'var(--corporations-search-input-border)' },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'var(--corporations-search-input-border-focus)',
+                  borderWidth: 1,
+                },
+                '& .MuiInputBase-input': { color: 'var(--corporations-search-input-text)' },
+                '& .MuiInputBase-input::placeholder': {
+                  color: 'var(--corporations-search-input-placeholder)',
+                  opacity: 1,
+                },
+              }}
             />
             <CustomSelect
               options={STATUS_FILTER_OPTIONS}

@@ -7,4 +7,11 @@
   /* Add corporation CTA (theme error red) */
   --corporations-add-cta-bg: #c44755;
   --corporations-add-cta-bg-hover: #a12f3f;
+  /* Corporation directory search field (yellow surface) */
+  --corporations-search-input-bg: #fef08a;
+  --corporations-search-input-border: #ca8a04;
+  --corporations-search-input-border-focus: #a16207;
+  --corporations-search-input-text: #2f414a;
+  --corporations-search-input-placeholder: rgba(47, 65, 74, 0.65);
+  --corporations-search-icon-color: rgba(47, 65, 74, 0.72);
 }

@@ -1,7 +1,14 @@
 import { TextField, InputAdornment } from '@mui/material';
 import { Search } from 'lucide-react';
 
-export function SearchInput({ placeholder = 'Search here...', value, onChange, 'aria-label': ariaLabel }) {
+export function SearchInput({
+  placeholder = 'Search here...',
+  value,
+  onChange,
+  'aria-label': ariaLabel,
+  startAdornmentIconColor = 'rgba(73, 130, 145, 1)',
+  inputSx = {},
+}) {
   return (
     <TextField
       placeholder={placeholder}
@@ -12,7 +19,7 @@ export function SearchInput({ placeholder = 'Search here...', value, onChange, '
       InputProps={{
         startAdornment: (
           <InputAdornment position="start" sx={{ mr: 1 }}>
-            <Search size={18} style={{ color: 'rgba(73, 130, 145, 1)' }} />
+            <Search size={18} style={{ color: startAdornmentIconColor }} />
           </InputAdornment>
         ),
         sx: {
@@ -28,6 +35,7 @@ export function SearchInput({ placeholder = 'Search here...', value, onChange, '
             color: 'rgba(73, 130, 145, 1)',
             opacity: 1,
           },
+          ...inputSx,
         },
       }}
       inputProps={{
