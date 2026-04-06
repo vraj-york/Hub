@@ -39,10 +39,9 @@ test.describe('Dashboard Page', () => {
     await expect(dashboardNav).toHaveAttribute('aria-current', 'page');
   });
 
-  test('header shows theme toggle (moon) and notifications (bell)', async ({ page }) => {
+  test('header shows notifications (bell)', async ({ page }) => {
     await page.goto('/dashboard');
-    await expect(page.getByRole('button', { name: 'Toggle dark mode' })).toBeVisible({ timeout: 10000 });
-    await expect(page.getByRole('button', { name: 'Notifications' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Notifications' })).toBeVisible({ timeout: 10000 });
   });
 
   test('SuperAdminPersonaDisplay is rendered with correct content and accessibility', async ({ page }) => {

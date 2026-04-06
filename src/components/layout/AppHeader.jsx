@@ -1,6 +1,6 @@
 import { Box, Typography, IconButton } from '@mui/material';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { ChevronRight, Moon, Bell } from 'lucide-react';
+import { ChevronRight, Bell } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { selectCurrentCorporation } from '../../store/slices/corporationsSlice';
 import { selectCurrentCompany } from '../../store/slices/companyConfigSlice';
@@ -127,9 +127,6 @@ export function AppHeader() {
         ))}
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <IconButton size="small" aria-label="Toggle dark mode">
-          <Moon size={20} strokeWidth={1.5} style={{ color: 'var(--color-primary-dark)' }} />
-        </IconButton>
         <IconButton size="small" aria-label="Notifications">
           <Bell size={20} strokeWidth={1.5} style={{ color: 'var(--color-primary-dark)' }} />
         </IconButton>
