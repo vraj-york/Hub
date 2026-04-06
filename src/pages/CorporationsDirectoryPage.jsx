@@ -162,9 +162,15 @@ export function CorporationsDirectoryPage() {
               onChange={handleStatusChange}
               placeholder="All status"
               aria-label="Filter by corporation status"
-              selectedValueTextColor="rgba(47, 65, 74, 1)"
-              inputBackground="rgba(255, 255, 255, 1)"
-              triggerSx={{ minWidth: 'var(--corporations-status-select-min-width)' }}
+              selectedValueTextColor="var(--corporations-status-select-foreground)"
+              inputBackground="var(--corporations-status-select-background)"
+              triggerSx={{
+                minWidth: 'var(--corporations-status-select-min-width)',
+                '& svg': {
+                  color: 'var(--corporations-status-select-foreground)',
+                  stroke: 'var(--corporations-status-select-foreground)',
+                },
+              }}
             />
             <CustomSelect
               options={TIME_RANGE_OPTIONS}
