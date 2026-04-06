@@ -4,6 +4,7 @@ import { ChevronRight, Bell } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { selectCurrentCorporation } from '../../store/slices/corporationsSlice';
 import { selectCurrentCompany } from '../../store/slices/companyConfigSlice';
+import '../../assets/styles/appHeaderBreadcrumb.css';
 
 const breadcrumbSegments = (corporationName) => [
   { label: 'Corporation Directory', path: '/corporations' },
@@ -89,6 +90,7 @@ export function AppHeader() {
             )}
             {seg.current ? (
               <Typography
+                component="h6"
                 variant="subtitle2"
                 aria-current={seg.current && (seg.label === 'Add New Corporation' || seg.label === 'Choose Setup') ? 'page' : undefined}
                 sx={{
@@ -96,8 +98,16 @@ export function AppHeader() {
                   fontSize: '0.875rem',
                   color:
                     seg.label === 'Corporation Directory' && seg.current
-                      ? 'var(--color-success)'
+                      ? 'var(--breadcrumb-corporation-directory-gradient-text)'
                       : 'var(--color-primary-dark)',
+                  ...(seg.label === 'Corporation Directory' && seg.current
+                    ? {
+                        background: 'var(--breadcrumb-corporation-directory-gradient)',
+                        px: 1.5,
+                        py: 0.5,
+                        borderRadius: 1,
+                      }
+                    : {}),
                 }}
               >
                 {seg.label}

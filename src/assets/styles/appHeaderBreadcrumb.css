@@ -1,0 +1,10 @@
+/* App header breadcrumb — Corporation Directory current segment */
+:root {
+  --breadcrumb-corporation-directory-gradient: linear-gradient(
+    135deg,
+    rgba(225, 236, 252, 1) 0%,
+    rgba(241, 246, 253, 1) 45%,
+    rgba(231, 237, 247, 1) 100%
+  );
+  --breadcrumb-corporation-directory-gradient-text: #2f414a;
+}
