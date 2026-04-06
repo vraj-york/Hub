@@ -1,0 +1,8 @@
+/* Super admin sidebar — User Directory nav item (light blue emphasis) */
+:root {
+  --sidebar-user-directory-fg: #4a8fd9;
+  --sidebar-user-directory-hover-bg: rgba(58, 111, 216, 0.12);
+  --sidebar-user-directory-active-bg: rgba(241, 246, 253, 1);
+  --sidebar-user-directory-active-bg-hover: rgba(225, 236, 252, 1);
+  --sidebar-user-directory-active-fg: #305fa1;
+}

@@ -29,6 +29,7 @@ import { selectCurrentCorporationLogoUrl } from '../../store/slices/corporations
 import bspBlueprintLogo from '../../assets/images/client-link-48-88409125.jpg';
 import dashboardNavIcon from '../../assets/images/client-link-49-8de7f6ef.webp';
 import '../../assets/styles/superAdminSidebarCompanyDirectory.css';
+import '../../assets/styles/superAdminSidebarUserDirectory.css';
 
 const sidebarGroups = [
   {
@@ -203,6 +204,7 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
               const Icon = item.icon ?? null;
               const isDashboard = item.path === '/dashboard';
               const isCompaniesDirectory = item.path === '/companies';
+              const isUserDirectory = item.path === '/admin/users';
               const isActive =
                 item.path === '/corporations'
                   ? location.pathname.startsWith('/corporations')
@@ -213,6 +215,7 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                       : location.pathname.startsWith(item.path);
               const isDashboardActive = isDashboard && isActive;
               const isCompaniesDirectoryActive = isCompaniesDirectory && isActive;
+              const isUserDirectoryActive = isUserDirectory && isActive;
               const ariaLabel = item.badgeCount
                 ? `${item.label}, ${item.badgeCount} new notification${item.badgeCount !== 1 ? 's' : ''}`
                 : `Navigate to ${item.label}`;
@@ -237,32 +240,55 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                           color: 'var(--sidebar-company-directory-fg)',
                         },
                       }
-                    : {
-                        background: isDashboardActive || isCompaniesDirectoryActive
-                          ? 'rgba(48, 95, 161, 1)'
-                          : isActive
-                            ? 'var(--color-grey-100)'
-                            : 'transparent',
-                        borderLeft:
-                          isActive && !isDashboardActive && !isCompaniesDirectoryActive
-                            ? '4px solid var(--color-accent-blue)'
-                            : '4px solid transparent',
-                        color: isDashboardActive || isCompaniesDirectoryActive
-                          ? 'rgba(255, 255, 255, 1)'
-                          : isActive
-                            ? 'var(--color-accent-blue)'
-                            : 'var(--color-primary-dark)',
-                        '&:hover': {
-                          background: isDashboardActive || isCompaniesDirectoryActive
-                            ? 'rgba(48, 95, 161, 0.9)'
-                            : isActive
-                              ? 'var(--color-grey-100)'
-                              : 'rgba(231, 237, 247, 0.5)',
-                          color: isDashboardActive || isCompaniesDirectoryActive
-                            ? 'rgba(255, 255, 255, 1)'
-                            : 'var(--color-accent-blue)',
-                        },
-                      };
+                    : isUserDirectory && isUserDirectoryActive
+                      ? {
+                          background: 'var(--sidebar-user-directory-active-bg)',
+                          borderLeft: '4px solid transparent',
+                          color: 'var(--sidebar-user-directory-active-fg)',
+                          '&:hover': {
+                            background: 'var(--sidebar-user-directory-active-bg-hover)',
+                            color: 'var(--sidebar-user-directory-active-fg)',
+                          },
+                        }
+                      : isUserDirectory
+                        ? {
+                            background: 'transparent',
+                            borderLeft: '4px solid transparent',
+                            color: 'var(--sidebar-user-directory-fg)',
+                            '&:hover': {
+                              background: 'var(--sidebar-user-directory-hover-bg)',
+                              color: 'var(--sidebar-user-directory-fg)',
+                            },
+                          }
+                        : {
+                            background: isDashboardActive || isCompaniesDirectoryActive
+                              ? 'rgba(48, 95, 161, 1)'
+                              : isActive
+                                ? 'var(--color-grey-100)'
+                                : 'transparent',
+                            borderLeft:
+                              isActive &&
+                              !isDashboardActive &&
+                              !isCompaniesDirectoryActive &&
+                              !isUserDirectoryActive
+                                ? '4px solid var(--color-accent-blue)'
+                                : '4px solid transparent',
+                            color: isDashboardActive || isCompaniesDirectoryActive
+                              ? 'rgba(255, 255, 255, 1)'
+                              : isActive
+                                ? 'var(--color-accent-blue)'
+                                : 'var(--color-primary-dark)',
+                            '&:hover': {
+                              background: isDashboardActive || isCompaniesDirectoryActive
+                                ? 'rgba(48, 95, 161, 0.9)'
+                                : isActive
+                                  ? 'var(--color-grey-100)'
+                                  : 'rgba(231, 237, 247, 0.5)',
+                              color: isDashboardActive || isCompaniesDirectoryActive
+                                ? 'rgba(255, 255, 255, 1)'
+                                : 'var(--color-accent-blue)',
+                            },
+                          };
 
               return (
                 <Box
@@ -270,7 +296,11 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                   onClick={() => handleNavClick(item.path)}
                   role="link"
                   aria-label={ariaLabel}
-                  aria-current={isDashboardActive || isCompaniesDirectoryActive ? 'page' : undefined}
+                  aria-current={
+                    isDashboardActive || isCompaniesDirectoryActive || isUserDirectoryActive
+                      ? 'page'
+                      : undefined
+                  }
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -314,9 +344,13 @@ export function SuperAdminSidebar({ variant, onNavigate, onClose } = {}) {
                               ? isCompaniesDirectoryActive
                                 ? 'var(--sidebar-company-directory-active-fg)'
                                 : 'var(--sidebar-company-directory-fg)'
-                              : isDashboardActive || isCompaniesDirectoryActive
-                                ? 'rgba(255, 255, 255, 1)'
-                                : 'rgba(47, 65, 74, 1)',
+                              : isUserDirectory
+                                ? isUserDirectoryActive
+                                  ? 'var(--sidebar-user-directory-active-fg)'
+                                  : 'var(--sidebar-user-directory-fg)'
+                                : isDashboardActive || isCompaniesDirectoryActive
+                                  ? 'rgba(255, 255, 255, 1)'
+                                  : 'rgba(47, 65, 74, 1)',
                         }}
                       />
                     )
