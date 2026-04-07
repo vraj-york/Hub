@@ -93,7 +93,7 @@ export function CorporationsDirectoryPage() {
                 fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
                 fontWeight: 600,
                 fontSize: 20,
-                color: 'rgba(47, 65, 74, 1)',
+                color: 'rgba(211, 47, 47, 1)',
                 mb: 0.5,
               }}
             >
