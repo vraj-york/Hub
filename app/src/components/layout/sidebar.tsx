@@ -80,6 +80,8 @@ export function Sidebar({ collapsed = false, activeItem }: SidebarProps) {
   const isCorpDir =
     activeItem === "corporation-directory" ||
     location.pathname === "/" ||
+    location.pathname === "/corporations" ||
+    location.pathname === "/corporations/" ||
     location.pathname.startsWith("/corporation/")
   const isCompanyDir =
     activeItem === "company-directory" ||
