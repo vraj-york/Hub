@@ -27,6 +27,12 @@ export default {
       spacing: {
         15: '3.75rem',
       },
+      fontSize: {
+        'heading-4': [
+          '1.25rem',
+          { lineHeight: '1.42857', fontWeight: '600' },
+        ],
+      },
     },
   },
   plugins: [],

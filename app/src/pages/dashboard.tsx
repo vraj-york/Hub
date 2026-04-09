@@ -27,6 +27,22 @@ export function DashboardPage() {
               </nav>
             </div>
           </header>
+          <div className="flex min-h-0 flex-1 flex-col overflow-auto">
+            <div className="flex min-h-[calc(100vh-8rem)] w-full justify-center px-4 py-6 md:px-6">
+              <div className="w-full max-w-4xl">
+                <div className="flex flex-col gap-6 overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-sm">
+                  <div className="gap-1 rounded-t-xl px-6 pt-6">
+                    <div
+                      data-slot="card-title"
+                      className="mb-1 text-heading-4 font-semibold text-red-600"
+                    >
+                      Basic Details
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
