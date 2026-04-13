@@ -235,17 +235,17 @@ function TimelineNodeBlock({
 	timelineDate: string;
 }) {
 	return (
-		<div className="flex flex-col items-center pt-1 text-center lg:pt-0">
+		<div className="flex w-full max-w-[5.5rem] flex-col items-center gap-2 px-1 py-1 text-center lg:gap-2.5 lg:py-0.5 lg:pt-1">
 			<div
 				className="relative z-[1] flex size-8 shrink-0 items-center justify-center rounded-full bg-success-bg shadow-[0_0_0_1px_rgba(255,255,255,0.5)_inset]"
 				aria-hidden
 			>
 				<span className="size-3.5 rounded-full bg-success shadow-sm ring-2 ring-background" />
 			</div>
-			<span className="relative z-[1] mt-2 text-small font-bold text-text-foreground">
+			<span className="relative z-[1] text-small font-bold leading-tight text-text-foreground">
 				{version}
 			</span>
-			<span className="relative z-[1] mt-0.5 text-xs text-text-secondary">
+			<span className="relative z-[1] text-xs leading-snug text-text-secondary">
 				{timelineDate}
 			</span>
 		</div>
