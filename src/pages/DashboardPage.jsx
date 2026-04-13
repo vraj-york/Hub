@@ -15,6 +15,7 @@ import {
   selectActiveThemePreference,
 } from '../store/slices/authSlice';
 import { setActiveSidebarItem } from '../store/slices/uiSlice';
+import dashboardPageContent from '../assets/data/dashboardPageContent.json';
 
 function themePreferenceToDisplay(preference) {
   if (preference === 'dark') return 'Dark Theme';
@@ -74,7 +75,7 @@ export function DashboardPage() {
                 mb: 0.5,
               }}
             >
-              Dashboard Overview
+              {dashboardPageContent.pageTitle}
             </Typography>
             <Typography
               sx={{
