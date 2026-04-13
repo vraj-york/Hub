@@ -104,7 +104,7 @@ export function CorporationsDirectoryPage() {
                 fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
                 fontWeight: 400,
                 fontSize: 14,
-                color: 'rgba(230, 81, 0, 1)',
+                color: 'rgba(56, 89, 102, 1)',
               }}
             >
               View and manage all corporations across the platform
