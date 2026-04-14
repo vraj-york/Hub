@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { Box, Card } from '@mui/material';
+import { Box, Card, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { SuperAdminLayout } from '../components/layout/SuperAdminLayout';
@@ -22,6 +22,7 @@ import {
   selectListSort,
 } from '../store/slices/corporationsSlice';
 import { STATUS_FILTER_OPTIONS, TIME_RANGE_OPTIONS } from '../data/mockCorporationsList';
+import corporationsDirectoryPageContent from '../assets/data/corporationsDirectoryPageContent.json';
 
 export function CorporationsDirectoryPage() {
   const navigate = useNavigate();
@@ -83,6 +84,20 @@ export function CorporationsDirectoryPage() {
   return (
     <SuperAdminLayout>
       <Box component="main" role="main" sx={{ py: 3, px: 0 }}>
+        <Box sx={{ mb: 3 }}>
+          <Typography
+            component="p"
+            sx={{
+              fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+              fontWeight: 400,
+              fontSize: 14,
+              color: 'rgba(230, 81, 0, 1)',
+              m: 0,
+            }}
+          >
+            {corporationsDirectoryPageContent.subtitle}
+          </Typography>
+        </Box>
         <Card
           sx={{
             background: 'rgba(255, 255, 255, 1)',

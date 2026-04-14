@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Corporation Profile - Configuration', () => {
   test('navigates to corporation profile from directory and shows content', async ({ page }) => {
     await page.goto('/corporations');
+    await expect(page.getByText('View and manage', { exact: true })).toBeVisible();
     await expect(page.getByText(/Showing \d+ corporations/)).toBeVisible({ timeout: 10000 });
 
     const viewButton = page.getByRole('button', { name: /View details for Acme Corporation/i });
@@ -20,6 +21,7 @@ test.describe('Corporation Profile - Configuration', () => {
 
     await page.getByRole('link', { name: /Back to corporation directory/i }).click();
     await expect(page).toHaveURL('/corporations');
+    await expect(page.getByText('View and manage', { exact: true })).toBeVisible();
     await expect(page.getByText(/Showing \d+ corporations/)).toBeVisible({ timeout: 10000 });
   });
 
