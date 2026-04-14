@@ -1,8 +1,7 @@
 import { useEffect, useCallback } from 'react';
-import { Box, Typography, Card, Button } from '@mui/material';
+import { Box, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Plus } from 'lucide-react';
 import { SuperAdminLayout } from '../components/layout/SuperAdminLayout';
 import { SearchInput } from '../components/common/SearchInput';
 import { CustomSelect } from '../components/company-creation/CustomSelect';
@@ -84,43 +83,6 @@ export function CorporationsDirectoryPage() {
   return (
     <SuperAdminLayout>
       <Box component="main" role="main" sx={{ py: 3, px: 0 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 2, mb: 3 }}>
-          <Box>
-            <Typography
-              sx={{
-                fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
-                fontWeight: 400,
-                fontSize: 14,
-                color: 'rgba(230, 81, 0, 1)',
-              }}
-            >
-              View and manage all corporations across the platform
-            </Typography>
-          </Box>
-          <Button
-            variant="contained"
-            startIcon={<Plus size={18} style={{ color: 'rgba(47, 65, 74, 1)' }} />}
-            onClick={() => navigate('/corporations/add')}
-            aria-label="Add a new corporation"
-            sx={{
-              background: 'rgba(245, 197, 24, 1)',
-              color: 'rgba(47, 65, 74, 1)',
-              fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
-              fontWeight: 600,
-              fontSize: 14,
-              textTransform: 'none',
-              borderRadius: 2,
-              boxShadow: 'none',
-              '&:hover': {
-                background: 'rgba(235, 180, 10, 1)',
-                boxShadow: 'none',
-              },
-            }}
-          >
-            Add New Corporation
-          </Button>
-        </Box>
-
         <Card
           sx={{
             background: 'rgba(255, 255, 255, 1)',
