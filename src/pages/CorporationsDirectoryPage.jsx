@@ -23,6 +23,7 @@ import {
   selectListSort,
 } from '../store/slices/corporationsSlice';
 import { STATUS_FILTER_OPTIONS, TIME_RANGE_OPTIONS } from '../data/mockCorporationsList';
+import corporationsDirectoryPageContent from '../assets/data/corporationsDirectoryPageContent.json';
 
 export function CorporationsDirectoryPage() {
   const navigate = useNavigate();
@@ -97,7 +98,7 @@ export function CorporationsDirectoryPage() {
                 mb: 0.5,
               }}
             >
-              Corporations
+              {corporationsDirectoryPageContent.pageTitle}
             </Typography>
             <Typography
               sx={{
