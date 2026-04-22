@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { HUB_LOCAL_KEYS, HUB_SESSION_KEYS } from '@/const';
 import { User, Integrations, UserPermissions, Meeting } from '../types';
 import { ROLE_PERMISSIONS } from '../constants/rolePermissions';
 
@@ -30,15 +31,21 @@ export function useAppState() {
     document.documentElement.classList.toggle('dark', isDark);
 
     // Check for saved auth state
-    const savedAuth = localStorage.getItem('meetingTracker_auth');
+    const savedAuth = localStorage.getItem(HUB_LOCAL_KEYS.auth);
     if (savedAuth) {
       const authData = JSON.parse(savedAuth);
       setCurrentUser(authData.user);
       setIsAuthenticated(true);
+      if (authData.user?.email) {
+        sessionStorage.setItem(HUB_SESSION_KEYS.prototypeUserEmail, authData.user.email);
+      }
+      if (authData.user?.role) {
+        sessionStorage.setItem(HUB_SESSION_KEYS.prototypeUserRole, authData.user.role);
+      }
     }
 
     // Load integration states from localStorage
-    const savedIntegrations = localStorage.getItem('integrations');
+    const savedIntegrations = localStorage.getItem(HUB_LOCAL_KEYS.integrations);
     if (savedIntegrations) {
       setIntegrations(JSON.parse(savedIntegrations));
     }
@@ -50,7 +57,7 @@ export function useAppState() {
     }
 
     // Load meetings from localStorage
-    const savedMeetings = localStorage.getItem('meetings');
+    const savedMeetings = localStorage.getItem(HUB_LOCAL_KEYS.meetings);
     if (savedMeetings) {
       setMeetings(JSON.parse(savedMeetings));
     } else {
@@ -268,7 +275,7 @@ export function useAppState() {
         }
       ];
       setMeetings(defaultMeetings);
-      localStorage.setItem('meetings', JSON.stringify(defaultMeetings));
+      localStorage.setItem(HUB_LOCAL_KEYS.meetings, JSON.stringify(defaultMeetings));
     }
   }, []);
 
@@ -276,14 +283,18 @@ export function useAppState() {
     setCurrentUser(user);
     setIsAuthenticated(true);
     setActiveTab('create');
-    localStorage.setItem('meetingTracker_auth', JSON.stringify({ user }));
+    localStorage.setItem(HUB_LOCAL_KEYS.auth, JSON.stringify({ user }));
+    sessionStorage.setItem(HUB_SESSION_KEYS.prototypeUserEmail, user.email);
+    sessionStorage.setItem(HUB_SESSION_KEYS.prototypeUserRole, user.role);
   };
 
   const handleLogout = () => {
     setCurrentUser(null);
     setIsAuthenticated(false);
     setActiveTab('create');
-    localStorage.removeItem('meetingTracker_auth');
+    localStorage.removeItem(HUB_LOCAL_KEYS.auth);
+    sessionStorage.removeItem(HUB_SESSION_KEYS.prototypeUserEmail);
+    sessionStorage.removeItem(HUB_SESSION_KEYS.prototypeUserRole);
   };
 
   const toggleTheme = () => {
@@ -305,7 +316,7 @@ export function useAppState() {
       [service]: data
     };
     setIntegrations(newIntegrations);
-    localStorage.setItem('integrations', JSON.stringify(newIntegrations));
+    localStorage.setItem(HUB_LOCAL_KEYS.integrations, JSON.stringify(newIntegrations));
   };
 
   const getUserPermissions = (): UserPermissions => {
@@ -362,13 +373,13 @@ export function useAppState() {
   const addMeeting = (meeting: Meeting) => {
     const newMeetings = [...meetings, meeting];
     setMeetings(newMeetings);
-    localStorage.setItem('meetings', JSON.stringify(newMeetings));
+    localStorage.setItem(HUB_LOCAL_KEYS.meetings, JSON.stringify(newMeetings));
   };
 
   const addMeetings = (newMeetings: Meeting[]) => {
     const updatedMeetings = [...meetings, ...newMeetings];
     setMeetings(updatedMeetings);
-    localStorage.setItem('meetings', JSON.stringify(updatedMeetings));
+    localStorage.setItem(HUB_LOCAL_KEYS.meetings, JSON.stringify(updatedMeetings));
   };
 
   const updateMeeting = (meetingId: string, updates: Partial<Meeting>) => {
@@ -376,13 +387,13 @@ export function useAppState() {
       meeting.id === meetingId ? { ...meeting, ...updates } : meeting
     );
     setMeetings(updatedMeetings);
-    localStorage.setItem('meetings', JSON.stringify(updatedMeetings));
+    localStorage.setItem(HUB_LOCAL_KEYS.meetings, JSON.stringify(updatedMeetings));
   };
 
   const deleteMeeting = (meetingId: string) => {
     const updatedMeetings = meetings.filter(meeting => meeting.id !== meetingId);
     setMeetings(updatedMeetings);
-    localStorage.setItem('meetings', JSON.stringify(updatedMeetings));
+    localStorage.setItem(HUB_LOCAL_KEYS.meetings, JSON.stringify(updatedMeetings));
   };
 
   return {

@@ -5,7 +5,7 @@
 
   ## Running the code
 
-  Run `npm i` to install the dependencies.
+  Run `npm install --prefix Frontend` (or `cd Frontend && npm install`) to install dependencies.
 
-  Run `npm run dev` to start the development server.
+  Run `npm run dev` from the repository root, or `npm run dev` inside `Frontend/`, to start the development server.
   

@@ -13,7 +13,6 @@ import { OngoingMeeting } from './components/OngoingMeeting';
 import { HeaderControls } from './components/HeaderControls';
 import { AIAssistantFAB } from './components/AIAssistantFAB';
 import { useAppState } from './hooks/useAppState';
-import { Toaster } from './components/ui/sonner';
 
 export default function App() {
   const {
@@ -272,12 +271,6 @@ export default function App() {
         onNavigateToCreate={() => setActiveTab('create')}
       />
 
-      {/* Toast Notifications */}
-      <Toaster 
-        position="top-right"
-        closeButton
-        richColors
-      />
     </div>
   );
 }
